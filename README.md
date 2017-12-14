@@ -6,16 +6,6 @@
 1. macOS only: uninstall shiftit, iterm, any other cask apps listed in the casks of macos.yml.
 1. `<garden-workstations>/run.sh`
 
-## Currently-required manual steps
-
-1. If `bosh-cli` brew package was already installed **without** the
-   `without-bosh2` option, run `brew uninstall --force bosh-cli`. This is
-   needed as brew will falsely claim success, but won't change the link name
-   from bosh2 to bosh.
-1. If migrating from recent (pre 03/08/2017) revisions on the `ansible` branch:
-   `git checkout master && git fetch && git reset --hard origin/master`.  This
-   is necessary because master was force pushed to the old ansible branch.
-
 ## Linux post-install
 
 1. Do the things in common post-install below.
@@ -30,11 +20,6 @@
 1. Reload tmux and shell.
 1. Install TPM plugins (in tmux press prefix+I).
 1. `ruby-install` yourself a Ruby version.
-
-## Differences from master branch / install.sh
-
-1. This doesn't start VMs, e.g. concourse-lite.
-1. This doesn't clone projects, e.g. garden-runc-release.
 
 ## TODO
 
