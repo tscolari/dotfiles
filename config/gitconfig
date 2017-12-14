@@ -40,6 +40,8 @@
   # log
   l = log --graph --date=short
   lg = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative
+  flog = log --pretty=fuller --decorate
+  blog = log origin/master... --left-right
   changes = log --pretty=format:\"%h %cr %cn %Cgreen%s%Creset\" --name-status
   short = log --pretty=format:\"%h %cr %cn %Cgreen%s%Creset\"
   changelog = log --pretty=format:\" * %s\"
@@ -58,6 +60,7 @@
   # rebase
   rc = rebase --continue            # continue rebase
   rs = rebase --skip                # skip rebase
+  rebase = rebase -i --exec 'git duet-commit --amend --reset-author'
 
   # remote
   r = remote -v                     # show remotes (verbose)
@@ -100,8 +103,8 @@
   default = tracking
 [core]
   autocrlf = false
-  editor = vim
-	excludesfile = ~/.gitignore
+  editor = nvim
+  excludesfile = ~/.gitignore
 [advice]
   statusHints = false
 [diff]
@@ -121,3 +124,5 @@
   user = tscolari
 [heroku]
   account = tscolari
+[url "git@github.com:"]
+  pushInsteadOf = https://github.com/
