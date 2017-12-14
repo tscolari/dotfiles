@@ -1,0 +1,69 @@
+---
+- hosts: all
+  tags: [macos]
+  tasks:
+  - name: add Homebrew taps
+    homebrew_tap: name={{item}}
+    with_items:
+    - neovim/neovim
+    - caskroom/fonts
+
+  - name: install Homebrew packages
+    homebrew:
+      name: "{{item.name}}"
+      install_options: "{{item.install_options}}"
+      state: latest
+      update_homebrew: yes
+    with_items:
+    - {name: ack, install_options: ''}
+    - {name: ag, install_options: ''}
+    - {name: awscli, install_options: ''}
+    - {name: coreutils, install_options: ''}
+    - {name: ctags, install_options: ''}
+    - {name: docker, install_options: ''}
+    - {name: docker-machine, install_options: ''}
+    - {name: fasd, install_options: ''}
+    - {name: fzf, install_options: ''}
+    - {name: git, install_options: ''}
+    - {name: go, install_options: ''}
+    - {name: htop, install_options: ''}
+    - {name: jq, install_options: ''}
+    - {name: jsonpp, install_options: ''}
+    - {name: libgit2, install_options: ''}
+    - {name: memcached, install_options: ''}
+    - {name: neovim, install_options: ''}
+    - {name: postgresql, install_options: ''}
+    - {name: pstree, install_options: ''}
+    - {name: python, install_options: ''}
+    - {name: python3, install_options: ''}
+    - {name: reattach-to-user-namespace, install_options: ''}
+    - {name: ripgrep, install_options: ''}
+    - {name: shellcheck, install_options: ''}
+    - {name: ssh-copy-id, install_options: ''}
+    - {name: tig, install_options: ''}
+    - {name: tmate, install_options: ''}
+    - {name: tmux, install_options: ''}
+    - {name: tree, install_options: ''}
+    - {name: vim, install_options: 'with-lua'}
+    - {name: watch, install_options: ''}
+    - {name: wget, install_options: ''}
+    - {name: zsh, install_options: ''}
+
+  - name: install Homebrew casks
+    homebrew_cask: name={{item}} install_options=appdir=/Applications
+    with_items:
+    - docker
+    - flycut
+    - font-inconsolata
+    - google-cloud-sdk
+    - iterm2
+    - shiftit
+    - slack
+    - vagrant
+    - virtualbox
+
+  - name: install neovim pip package
+    pip: name=neovim state=latest
+
+  - name: install neovim pip3 package
+    pip: name=neovim state=latest executable=/usr/local/bin/pip3

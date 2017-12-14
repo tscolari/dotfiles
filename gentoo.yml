@@ -1,0 +1,85 @@
+---
+- hosts: all
+  tags: [gentoo]
+  tasks:
+  - name: cleanup portage configuration
+    become: yes
+    become_method: sudo
+    file:
+      path: "{{item}}"
+      state: absent
+      force: yes
+    with_items:
+    - /etc/portage/make.conf
+    - /etc/portage/package.keywords
+    - /etc/portage/package.use
+    - /etc/portage/package.mask
+  - name: copy portage configuration
+    become: yes
+    become_method: sudo
+    file:
+      path: "{{item.target}}"
+      src: "{{item.src}}"
+      state: link
+      force: yes
+    with_items:
+    - {target: /etc/portage/make.conf, src: "{{ansible_env.PWD}}/portage/make.conf"}
+    - {target: /etc/portage/package.keywords, src: "{{ansible_env.PWD}}/portage/package.keywords"}
+    - {target: /etc/portage/package.use, src: "{{ansible_env.PWD}}/portage/package.use"}
+    - {target: /etc/portage/package.mask, src: "{{ansible_env.PWD}}/portage/package.mask"}
+  - name: sync and update portage
+    portage:
+      package: '@world'
+      sync: yes
+      update: yes
+      deep: yes
+      newuse: yes
+      changed_use: yes
+  - name: clean up portage
+    portage:
+      depclean: yes
+  - name: install packages
+    become: yes
+    become_method: sudo
+    portage:
+      package: "{{item}}"
+    with_items:
+    - vim
+    - elixir
+    - the_silver_searcher
+    - dev-lang/go
+    - htop
+    - app-text/tree
+    - jq
+    - tig
+    - ack
+    - ctags
+    - cmake
+    - curl
+    - app-emulation/docker
+    - git
+    - libffi
+    - neovim
+    - nodejs
+    - dev-python/pip
+    - ruby
+    - tmate
+    - tmux
+    - virtualbox
+    - virtualbox-guest-additions
+    - zsh
+
+- hosts: all
+  tags: [gentoo_x]
+  tasks:
+  - name: install X packages
+    portage:
+      package: "{{item}}"
+    with_items:
+    - gnome
+    - gnome-tweak-tool
+    - x11-misc/xclip
+    - xsel
+    - x11-themes/arc-theme
+    - x11-themes/flatsvg
+    - x11-themes/gtk-engines-flat

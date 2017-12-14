@@ -1,0 +1,72 @@
+---
+- hosts: all
+  tags: [ubuntu, gentoo, macos]
+  tasks:
+  - name: get prezto
+    git:
+      repo: https://github.com/sorin-ionescu/prezto
+      dest: ~/.zprezto
+
+  - name: get TPM
+    git:
+      repo: https://github.com/tmux-plugins/tpm
+      dest: ~/.tmux/plugins/tpm
+
+  - name: create config folder
+    file:
+      path: ~/.config
+      state: directory
+
+  - name: set up symlinks
+    file:
+      path: "{{item.target}}"
+      src: "{{item.src}}"
+      state: link
+      force: yes
+    with_items:
+    - {target: ~/.zsh, src: "{{ansible_env.PWD}}/zsh"}
+    - {target: ~/.zshrc, src: "~/.zsh/zshrc"}
+    - {target: ~/.zpreztorc, src: "~/.zsh/zpreztorc"}
+    - {target: ~/.tmux.conf, src: "{{ansible_env.PWD}}/config/tmux.conf"}
+    - {target: ~/.editrc, src: "{{ansible_env.PWD}}/config/editrc"}
+    - {target: ~/.inputrc, src: "{{ansible_env.PWD}}/config/inputrc"}
+    - {target: ~/.gemrc, src: "{{ansible_env.PWD}}/config/gemrc"}
+    - {target: ~/.pryrc, src: "{{ansible_env.PWD}}/config/pryrc"}
+    - {target: ~/.ctags, src: "{{ansible_env.PWD}}/config/ctags"}
+    - {target: ~/.vimrc.local, src: "{{ansible_env.PWD}}/config/vimrc.local"}
+    - {target: ~/.vimrc.local.before, src: "{{ansible_env.PWD}}/config/vimrc.local.before"}
+    - {target: ~/.vimrc.local.plugins, src: "{{ansible_env.PWD}}/config/vimrc.local.plugins"}
+    - {target: ~/.gitconfig, src: "{{ansible_env.PWD}}/config/gitconfig"}
+    - {target: ~/.gitignore, src: "{{ansible_env.PWD}}/config/gitignore"}
+    - {target: ~/.config/clipit, src: "{{ansible_env.PWD}}/config/clipit"}
+
+  - name: set zsh as default
+    become: yes
+    become_method: sudo
+    user:
+      name: "{{ansible_env.USER }}"
+      shell: /bin/zsh
+
+  - name: clone vim config
+    git: repo=https://github.com/luan/vimfiles dest=~/.vim
+
+  - name: install vim config
+    command: ~/.vim/update
+
+  - name: install go apps
+    command: go get {{ item }}
+    with_items:
+    - github.com/direnv/direnv
+    - github.com/git-duet/git-duet/...
+
+  - name: install neovim pip package
+    pip: name=neovim state=latest extra_args=--user
+
+  - name: install pip3
+    pip: name=pip state=latest extra_args=--user
+
+  - name: install neovim pip3 package
+    pip: name=neovim state=latest extra_args=--user
+
+  - name: install rvm
+    command: curl -sSL https://get.rvm.io | bash

@@ -1,0 +1,8 @@
+>=gnome-base/gnome-settings-daemon-3.22.2-r1 policykit
+>=gnome-base/gnome-control-center-3.22.2-r1 networkmanager
+>=gnome-base/gvfs-1.30.4 gtk
+>=app-crypt/pinentry-0.9.7-r1 gnome-keyring
+>=media-libs/clutter-1.26.2 gtk
+>=media-libs/clutter-gtk-1.8.2 gtk
+>=media-libs/grilo-0.3.3 playlist
+>=media-libs/gegl-0.3.8 raw jpeg2k
