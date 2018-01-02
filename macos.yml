@@ -22,6 +22,8 @@
     - {name: ctags, install_options: ''}
     - {name: docker, install_options: ''}
     - {name: docker-machine, install_options: ''}
+    - {name: elixir, install_options: ''}
+    - {name: elm, install_options: ''}
     - {name: fasd, install_options: ''}
     - {name: fzf, install_options: ''}
     - {name: git, install_options: ''}
@@ -47,6 +49,7 @@
     - {name: vim, install_options: 'with-lua'}
     - {name: watch, install_options: ''}
     - {name: wget, install_options: ''}
+    - {name: yarn, install_options: ''}
     - {name: zsh, install_options: ''}
 
   - name: install Homebrew casks
