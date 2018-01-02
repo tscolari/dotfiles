@@ -39,6 +39,7 @@
     - {target: ~/.gitconfig, src: "{{ansible_env.PWD}}/config/gitconfig"}
     - {target: ~/.gitignore, src: "{{ansible_env.PWD}}/config/gitignore"}
     - {target: ~/.config/clipit, src: "{{ansible_env.PWD}}/config/clipit"}
+    - {target: ~/.rubocop.yml, src: "{{ansible_env.PWD}}/config/rubocop.yml"}
 
   - name: set zsh as default
     become: yes
