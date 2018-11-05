@@ -6,7 +6,6 @@
     homebrew_tap: name={{item}}
     with_items:
     - neovim/neovim
-    - caskroom/fonts
 
   - name: install Homebrew packages
     homebrew:
@@ -20,6 +19,7 @@
     - {name: awscli, install_options: ''}
     - {name: coreutils, install_options: ''}
     - {name: ctags, install_options: ''}
+    - {name: direnv, install_options: ''}
     - {name: docker, install_options: ''}
     - {name: docker-machine, install_options: ''}
     - {name: elixir, install_options: ''}
