@@ -17,6 +17,7 @@
     - {name: ack, install_options: ''}
     - {name: ag, install_options: ''}
     - {name: awscli, install_options: ''}
+    - {name: chruby, install_options: ''}
     - {name: coreutils, install_options: ''}
     - {name: ctags, install_options: ''}
     - {name: direnv, install_options: ''}
@@ -28,6 +29,7 @@
     - {name: fzf, install_options: ''}
     - {name: git, install_options: ''}
     - {name: go, install_options: ''}
+    - {name: gpg, install_options: ''}
     - {name: htop, install_options: ''}
     - {name: jq, install_options: ''}
     - {name: jsonpp, install_options: ''}
@@ -40,6 +42,7 @@
     - {name: python3, install_options: ''}
     - {name: reattach-to-user-namespace, install_options: ''}
     - {name: ripgrep, install_options: ''}
+    - {name: ruby-install, install_options: ''}
     - {name: shellcheck, install_options: ''}
     - {name: ssh-copy-id, install_options: ''}
     - {name: tig, install_options: ''}

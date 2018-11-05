@@ -119,7 +119,7 @@
   path = .gitconfig.user
 [user]
   name = Tiago Scolari
-  email = tscolari@gmail.com
+  email = git@tscolari.me
 [github]
   user = tscolari
 [heroku]

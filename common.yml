@@ -68,6 +68,3 @@
 
   - name: install neovim pip3 package
     pip: name=neovim state=latest extra_args=--user
-
-  - name: install rvm
-    command: curl -sSL https://get.rvm.io | bash
