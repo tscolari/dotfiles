@@ -36,6 +36,7 @@
     - {name: libgit2, install_options: ''}
     - {name: memcached, install_options: ''}
     - {name: neovim, install_options: ''}
+    - {name: pinentry-mac, install_options: ''}
     - {name: postgresql, install_options: ''}
     - {name: pstree, install_options: ''}
     - {name: python, install_options: ''}

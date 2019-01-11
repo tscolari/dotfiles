@@ -126,13 +126,14 @@
   account = tscolari
 [url "git@github.com:"]
   pushInsteadOf = https://github.com/
+[commit]
+  gpgsign = true
+[gpg]
+  program = gpg
 [duet "env"]
 	git-author-initials = ts
 	git-author-name = Tiago Scolari
 	git-author-email = git@tscolari.me
 	mtime = 1533649461
-	git-committer-initials = 
-	git-committer-name = 
-	git-committer-email = 
-[commit]
-  gpgsign = true
+[status]
+	submoduleSummary = true
