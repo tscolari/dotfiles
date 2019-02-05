@@ -33,6 +33,8 @@
     - {name: htop, install_options: ''}
     - {name: jq, install_options: ''}
     - {name: jsonpp, install_options: ''}
+    - {name: kube-ps1, install_options: ''}
+    - {name: kubectx, install_options: ''}
     - {name: libgit2, install_options: ''}
     - {name: memcached, install_options: ''}
     - {name: neovim, install_options: ''}

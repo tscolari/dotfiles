@@ -1,2 +1,3 @@
 Plug 'christoomey/vim-tmux-navigator'
 Plug 'ngmy/vim-rubocop'
+Plug 'derekwyatt/vim-scala'

@@ -28,6 +28,7 @@
     - {target: ~/.zshrc, src: "~/.zsh/zshrc"}
     - {target: ~/.zpreztorc, src: "~/.zsh/zpreztorc"}
     - {target: ~/.tmux.conf, src: "{{ansible_env.PWD}}/config/tmux.conf"}
+    - {target: ~/.tmux/kube.tmux, src: "{{ansible_env.PWD}}/config/kube.tmux"}
     - {target: ~/.editrc, src: "{{ansible_env.PWD}}/config/editrc"}
     - {target: ~/.inputrc, src: "{{ansible_env.PWD}}/config/inputrc"}
     - {target: ~/.gemrc, src: "{{ansible_env.PWD}}/config/gemrc"}
