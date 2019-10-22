@@ -65,7 +65,7 @@ fi
 
 (
 cd "$(dirname "$0")"
-cmd="ansible-playbook -i localhost, --tags $(unix playbook_tags),$extra_tags --con local playbook.yml"
+cmd="ansible-playbook --ask-become-pass -i localhost, --tags $(unix playbook_tags),$extra_tags --con local playbook.yml"
 if [ "$(uname)" == "Linux" ]; then
   cmd="$cmd --ask-become-pass"
 fi

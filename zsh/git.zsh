@@ -6,6 +6,7 @@ __git_files () {
 # Environment Variables
 export GIT_DUET_GLOBAL=true
 export GIT_DUET_ROTATE_AUTHOR=1
+export GPG_TTY=$(tty)
 
 # Git aliases
 alias duet='git duet --global'

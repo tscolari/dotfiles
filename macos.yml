@@ -41,8 +41,8 @@
     - {name: pinentry-mac, install_options: ''}
     - {name: postgresql, install_options: ''}
     - {name: pstree, install_options: ''}
+    - {name: python@2, install_options: ''}
     - {name: python, install_options: ''}
-    - {name: python3, install_options: ''}
     - {name: reattach-to-user-namespace, install_options: ''}
     - {name: ripgrep, install_options: ''}
     - {name: ruby-install, install_options: ''}
@@ -52,7 +52,7 @@
     - {name: tmate, install_options: ''}
     - {name: tmux, install_options: ''}
     - {name: tree, install_options: ''}
-    - {name: vim, install_options: 'with-lua'}
+    - {name: vim, install_options: ''}
     - {name: watch, install_options: ''}
     - {name: wget, install_options: ''}
     - {name: yarn, install_options: ''}
@@ -63,7 +63,6 @@
     with_items:
     - docker
     - flycut
-    - font-inconsolata
     - google-cloud-sdk
     - iterm2
     - shiftit
