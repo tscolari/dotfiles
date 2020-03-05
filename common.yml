@@ -59,10 +59,4 @@
     - github.com/git-duet/git-duet/...
 
   - name: install neovim pip package
-    pip: name=neovim state=latest extra_args=--user
-
-  - name: install pip3
-    pip: name=pip state=latest extra_args=--user
-
-  - name: install neovim pip3 package
-    pip: name=neovim state=latest extra_args=--user
+    pip: name=pynvim state=latest extra_args=--user executable=pip3
