@@ -26,6 +26,7 @@
     - {name: elixir, install_options: ''}
     - {name: elm, install_options: ''}
     - {name: fasd, install_options: ''}
+    - {name: fd, install_options: ''}
     - {name: fzf, install_options: ''}
     - {name: git, install_options: ''}
     - {name: go, install_options: ''}

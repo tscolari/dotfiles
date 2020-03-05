@@ -34,9 +34,9 @@
     - {target: ~/.gemrc, src: "{{ansible_env.PWD}}/config/gemrc"}
     - {target: ~/.pryrc, src: "{{ansible_env.PWD}}/config/pryrc"}
     - {target: ~/.ctags, src: "{{ansible_env.PWD}}/config/ctags"}
-    - {target: ~/.vimrc.local, src: "{{ansible_env.PWD}}/config/vimrc.local"}
-    - {target: ~/.vimrc.local.before, src: "{{ansible_env.PWD}}/config/vimrc.local.before"}
-    - {target: ~/.vimrc.local.plugins, src: "{{ansible_env.PWD}}/config/vimrc.local.plugins"}
+    - {target: ~/.config/nvim/user/after.vim, src: "{{ansible_env.PWD}}/config/nvim/after.vim"}
+    - {target: ~/.config/nvim/user/before.vim, src: "{{ansible_env.PWD}}/config/nvim/before.vim"}
+    - {target: ~/.config/nvim/user/plug.vim, src: "{{ansible_env.PWD}}/config/nvim/plug.vim"}
     - {target: ~/.gitconfig, src: "{{ansible_env.PWD}}/config/gitconfig"}
     - {target: ~/.gitignore, src: "{{ansible_env.PWD}}/config/gitignore"}
     - {target: ~/.config/clipit, src: "{{ansible_env.PWD}}/config/clipit"}
@@ -50,10 +50,7 @@
       shell: /bin/zsh
 
   - name: clone vim config
-    git: repo=https://github.com/luan/vimfiles dest=~/.vim
-
-  - name: install vim config
-    command: ~/.vim/update
+    git: repo=https://github.com/luan/nvim dest=~/.cofnig/nvim
 
   - name: install go apps
     command: go get {{ item }}
