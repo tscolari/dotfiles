@@ -64,9 +64,5 @@
     with_items:
     - docker
     - flycut
-    - google-cloud-sdk
     - iterm2
     - shiftit
-    - slack
-    - vagrant
-    - virtualbox

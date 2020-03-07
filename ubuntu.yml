@@ -7,10 +7,10 @@
     become_method: sudo
     apt_repository: repo={{ item }}
     with_items:
-    - ppa:git-core/ppa
-    - ppa:neovim-ppa/{{ [ansible_distribution_release] | issubset(['xenial', 'yakkety']) | ternary('stable', 'unstable') }}
-    - ppa:pi-rho/dev
-    - ppa:tmate.io/archive
+    # - ppa:git-core/ppa
+    # - ppa:neovim-ppa/{{ [ansible_distribution_release] | issubset(['xenial', 'yakkety']) | ternary('stable', 'unstable') }}
+    # - ppa:pi-rho/dev
+    # - ppa:tmate.io/archive
     - ppa:aacebedo/fasd
     - ppa:noobslab/themes
     - ppa:noobslab/icons
@@ -45,52 +45,8 @@
     become_method: sudo
     apt: name={{ item }} state=latest
     with_items:
-    - ack-grep
     - build-essential
-    - cmake
-    - curl
-    - direnv
-    - docker.io
-    - elixir
-    - exuberant-ctags
-    - fasd
-    - git
     - hfsprogs
-    - htop
-    - jq
-    - kubeadm
-    - kubectl
-    - kubelet
-    - kubernetes-cni
-    - libcurl4-openssl-dev
-    - libevent-dev
-    - libncurses5-dev
-    - libssl-dev
-    - libxml2
-    - libxml2-dev
-    - mercurial
-    - neovim
-    - nodejs
-    - openssl
-    - pinentry-curses
-    - pkg-config
-    - python-dev
-    - python-pip
-    - python3-dev
-    - python3-pip
-    - python3.6
-    - ruby
-    - shellcheck
-    - silversearcher-ag
-    - tig
-    - tmate
-    - tmux-next
-    - tree
-    - vim
-    - vim-nox
-    - virtualbox-5.1
-    - wget
-    - zsh
 
   - name: install Vagrant
     become: yes
