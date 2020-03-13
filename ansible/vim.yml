@@ -1,0 +1,27 @@
+---
+- hosts: all
+  tags: [ubuntu, gentoo, macos]
+  tasks:
+  - name: clone vim config
+    git:
+      repo: https://github.com/luan/nvim
+      dest: ~/.config/nvim
+
+  - name: create config/nvim folder
+    file:
+      path: ~/.config/nvim/user
+      state: directory
+
+  - name: install neovim pip package
+    pip: name=pynvim state=latest extra_args=--user executable=pip3
+
+  - name: set up symlinks
+    file:
+      path: "{{item.target}}"
+      src: "{{item.src}}"
+      state: link
+      force: yes
+    with_items:
+    - {target: ~/.config/nvim/user/after.vim, src: "{{ansible_env.PWD}}/../config/nvim/after.vim"}
+    - {target: ~/.config/nvim/user/before.vim, src: "{{ansible_env.PWD}}/../config/nvim/before.vim"}
+    - {target: ~/.config/nvim/user/plug.vim, src: "{{ansible_env.PWD}}/../config/nvim/plug.vim"}

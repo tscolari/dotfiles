@@ -7,3 +7,5 @@ if [ -d $HOME/.zsh.before/ ]; then
 fi
 
 ulimit -n 65536
+
+test -d /home/linuxbrew/.linuxbrew && eval $(/home/linuxbrew/.linuxbrew/bin/brew shellenv)

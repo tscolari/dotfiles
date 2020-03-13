@@ -1,0 +1,52 @@
+---
+- hosts: all
+  tags: [ubuntu, gentoo, macos]
+  tasks:
+  - name: get prezto
+    git:
+      repo: https://github.com/sorin-ionescu/prezto
+      dest: ~/.zprezto
+
+  - name: get TPM
+    git:
+      repo: https://github.com/tmux-plugins/tpm
+      dest: ~/.tmux/plugins/tpm
+
+  - name: create config folder
+    file:
+      path: ~/.config
+      state: directory
+
+  - name: set up symlinks
+    file:
+      path: "{{item.target}}"
+      src: "{{item.src}}"
+      state: link
+      force: yes
+    with_items:
+    - {target: ~/.config/alacritty, src: "{{ansible_env.PWD}}/../config/alacritty"}
+    - {target: ~/.ctags, src: "{{ansible_env.PWD}}/../config/ctags"}
+    - {target: ~/.editrc, src: "{{ansible_env.PWD}}/../config/editrc"}
+    - {target: ~/.editrc, src: "{{ansible_env.PWD}}/../config/editrc"}
+    - {target: ~/.gemrc, src: "{{ansible_env.PWD}}/../config/gemrc"}
+    - {target: ~/.gitconfig, src: "{{ansible_env.PWD}}/../config/gitconfig"}
+    - {target: ~/.gitignore, src: "{{ansible_env.PWD}}/../config/gitignore"}
+    - {target: ~/.inputrc, src: "{{ansible_env.PWD}}/../config/inputrc"}
+    - {target: ~/.pryrc, src: "{{ansible_env.PWD}}/../config/pryrc"}
+    - {target: ~/.rubocop.yml, src: "{{ansible_env.PWD}}/../config/rubocop.yml"}
+    - {target: ~/.tmux.conf, src: "{{ansible_env.PWD}}/../config/tmux.conf"}
+    - {target: ~/.zpreztorc, src: "~/.zsh/zpreztorc"}
+    - {target: ~/.zsh, src: "{{ansible_env.PWD}}/../zsh"}
+    - {target: ~/.zshrc, src: "~/.zsh/zshrc"}
+
+  - name: set zsh as default
+    become: yes
+    become_method: sudo
+    user:
+      name: "{{ansible_env.USER }}"
+      shell: /bin/zsh
+
+  - name: create workfspace
+    file:
+      path: ~/workspace
+      state: directory

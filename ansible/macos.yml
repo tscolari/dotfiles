@@ -1,0 +1,29 @@
+---
+- hosts: all
+  tags: [macos]
+  tasks:
+  - name: add Homebrew taps
+    homebrew_tap: name={{item}}
+    with_items:
+    - neovim/neovim
+
+  - name: install Homebrew packages
+    homebrew:
+      name: "{{item.name}}"
+      install_options: "{{item.install_options}}"
+      state: latest
+      update_homebrew: yes
+    with_items:
+    - {name: reattach-to-user-namespace, install_options: ''}
+
+  - name: install Homebrew casks
+    homebrew_cask: name={{item}} install_options=appdir=/Applications
+    with_items:
+    - docker
+    - flycut
+    - iterm2
+    - shiftit
+    - google-cloud-sdk
+    - slack
+    - vagrant
+    - virtualbox

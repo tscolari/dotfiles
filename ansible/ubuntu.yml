@@ -1,0 +1,67 @@
+---
+- hosts: all
+  tags: [ubuntu]
+  tasks:
+  - name: upgrade packages
+    become: yes
+    become_method: sudo
+    apt:
+      update_cache: yes
+      upgrade: yes
+
+  - name: install apt packages
+    become: yes
+    become_method: sudo
+    apt:
+      state: latest
+      name:
+      - aptitude
+      - apt-transport-https
+      - build-essential
+      - curl
+      - docker.io
+      - git
+      - file
+      - hfsprogs
+
+  - name: checking zsh
+    shell: cat /etc/shells | grep zsh | wc -l
+    register: test_zsh
+
+  - name: adding zsh to shells
+    become: yes
+    become_method: sudo
+    lineinfile: dest=/etc/shells line="/home/linuxbrew/.linuxbrew/bin/zsh"
+    when: test_zsh.stdout == "0"
+
+  - name: set zsh as default
+    become: yes
+    become_method: sudo
+    user:
+      name: "{{ansible_env.USER }}"
+      shell: /home/linuxbrew/.linuxbrew/bin/zsh
+
+  - name: Create docker group
+    become: yes
+    become_method: sudo
+    group:
+      name: docker
+      state: present
+
+  - name: Add user to docker group
+    become: yes
+    become_method: sudo
+    user:
+      name: "{{ansible_env.USER }}"
+      append: yes
+      groups:
+      - docker
+
+  - name: Enable docker
+    become: yes
+    become_method: sudo
+    systemd:
+      enabled: true
+      state: started
+      name: docker
+

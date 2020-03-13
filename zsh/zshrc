@@ -26,3 +26,4 @@ if [[ -z $precmd_functions[(r)_direnv_hook] ]]; then
 fi
 
 export PATH="$PATH:/sbin"
+

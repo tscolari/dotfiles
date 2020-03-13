@@ -36,10 +36,6 @@ install_ansible__Darwin() {
   brew install ansible
 }
 
-playbook_tags__Gentoo() {
-  echo "gentoo"
-}
-
 playbook_tags__Ubuntu() {
   echo "ubuntu"
 }
@@ -65,7 +61,7 @@ fi
 
 (
 cd "$(dirname "$0")"
-cmd="ansible-playbook --ask-become-pass -i localhost, --tags $(unix playbook_tags),$extra_tags --con local playbook.yml"
+cmd="ansible-playbook --ask-become-pass -i localhost, --tags $(unix playbook_tags),$extra_tags --con local ./ansible/playbook.yml"
 if [ "$(uname)" == "Linux" ]; then
   cmd="$cmd --ask-become-pass"
 fi

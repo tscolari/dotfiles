@@ -1,3 +1,0 @@
-app-emulation/virtualbox headless
->=dev-libs/libpcre-8.38-r1 pcre16
->=app-emulation/virtualbox-guest-additions-5.0.40 -X
