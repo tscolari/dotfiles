@@ -6,6 +6,6 @@ if [ -d $HOME/.zsh.before/ ]; then
   fi
 fi
 
-ulimit -n 65536
+ulimit -n 4096
 
 test -d /home/linuxbrew/.linuxbrew && eval $(/home/linuxbrew/.linuxbrew/bin/brew shellenv)
