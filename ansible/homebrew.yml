@@ -37,6 +37,7 @@
     - {name: go, install_options: ''}
     - {name: gomplate, install_options: ''}
     - {name: gpg, install_options: ''}
+    - {name: grpcurl, install_options: ''}
     - {name: htop, install_options: ''}
     - {name: jq, install_options: ''}
     - {name: jsonpp, install_options: ''}
