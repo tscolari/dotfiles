@@ -6,7 +6,5 @@
     command: go get {{ item }}
     with_items:
     - github.com/git-duet/git-duet/...
-    - github.com/mitchellh/protoc-gen-go-json
-    - github.com/uber/prototool
     - github.com/vektra/mockery/.../
     - gotest.tools/gotestsum

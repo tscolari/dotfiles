@@ -6,6 +6,6 @@ if [ -d $HOME/.zsh.before/ ]; then
   fi
 fi
 
-ulimit -n $(ulimit -Hn)
+ulimit -n unlimited
 
 test -d /home/linuxbrew/.linuxbrew && eval $(/home/linuxbrew/.linuxbrew/bin/brew shellenv)
