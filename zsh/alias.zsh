@@ -46,3 +46,6 @@ function fn() { ls **/*$1* }
 
 # Goes to the root path of the git repository
 function cd_() { cd "$(git rev-parse --show-toplevel)" }
+
+# Misc
+alias -g weather='curl wttr.in'
