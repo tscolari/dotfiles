@@ -53,6 +53,7 @@
     - {name: pkg-config, install_options: ''}
     - {name: postgresql, install_options: ''}
     - {name: pstree, install_options: ''}
+    - {name: pyenv, install_options: ''}
     - {name: python3, install_options: ''}
     - {name: python@2, install_options: ''}
     - {name: ripgrep, install_options: ''}
