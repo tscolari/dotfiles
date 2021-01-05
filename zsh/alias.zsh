@@ -10,8 +10,7 @@ alias txs='tmux switch -t'
 
 # Show human friendly numbers and colors
 alias df='df -h'
-flavour="$(uname)"
-if [ "$flavour" = "Linux" ]; then
+if [ "$(uname)" = "Linux" ]; then
   alias ll='ls -alGh --color'
   alias ls='ls -Gh --color'
 else

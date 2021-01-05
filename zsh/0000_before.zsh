@@ -6,6 +6,8 @@ if [ -d $HOME/.zsh.before/ ]; then
   fi
 fi
 
-ulimit -n unlimited
-
-test -d /home/linuxbrew/.linuxbrew && eval $(/home/linuxbrew/.linuxbrew/bin/brew shellenv)
+# Linux only
+if [ "$(uname)" = "Linux" ]; then
+  ulimit -n unlimited
+  test -d /home/linuxbrew/.linuxbrew && eval $(/home/linuxbrew/.linuxbrew/bin/brew shellenv)
+fi
