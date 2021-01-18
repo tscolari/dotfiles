@@ -1,5 +1,7 @@
 # set your user tokens as enivornment variables, such as ~/.secrets
 # See the README for examples.
+[include]
+  path = ~/.gitconfig.user
 [color]
   ui = true
 [color "branch"]
@@ -115,26 +117,16 @@
   # Remember my merges
   # http://gitfu.wordpress.com/2008/04/20/git-rerere-rereremember-what-you-did-last-time/
   enabled = true
-[include]
-  path = .gitconfig.user
-[user]
-  name = Tiago Scolari
-  email = git@tscolari.me
 [github]
   user = tscolari
 [heroku]
   account = tscolari
 [url "git@github.com:"]
   pushInsteadOf = https://github.com/
-	insteadOf = https://github.com/
+  insteadOf = https://github.com/
 [commit]
   gpgsign = true
 [gpg]
   program = gpg
-[duet "env"]
-	git-author-initials = ts
-	git-author-name = Tiago Scolari
-	git-author-email = git@tscolari.me
-	mtime = 1533649461
 [status]
-	submoduleSummary = true
+  submoduleSummary = true
