@@ -55,7 +55,6 @@
     - {name: pstree, install_options: ''}
     - {name: pyenv, install_options: ''}
     - {name: python3, install_options: ''}
-    - {name: python@2, install_options: ''}
     - {name: ripgrep, install_options: ''}
     - {name: ruby-install, install_options: ''}
     - {name: rust, install_options: ''}
