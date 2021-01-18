@@ -35,9 +35,8 @@
     - {target: ~/.pryrc, src: "{{ansible_env.PWD}}/../config/pryrc"}
     - {target: ~/.rubocop.yml, src: "{{ansible_env.PWD}}/../config/rubocop.yml"}
     - {target: ~/.tmux.conf, src: "{{ansible_env.PWD}}/../config/tmux.conf"}
-    - {target: ~/.zpreztorc, src: "~/.zsh/zpreztorc"}
-    - {target: ~/.zsh, src: "{{ansible_env.PWD}}/../zsh"}
-    - {target: ~/.zshrc, src: "~/.zsh/zshrc"}
+    - {target: ~/.zpreztorc, src: "{{ansible_env.PWD}}/../zsh/zpreztorc"}
+    - {target: ~/.zshrc, src: "{{ansible_env.PWD}}/../zsh/zshrc"}
 
   - name: set zsh as default
     become: yes

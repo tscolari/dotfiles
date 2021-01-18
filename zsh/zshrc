@@ -15,6 +15,11 @@ do
   source $config_file
 done
 
+for config_file in $(ls $HOME/.zsh.local/*.zsh)
+do
+  source $config_file
+done
+
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
 _direnv_hook() {
