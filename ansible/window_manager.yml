@@ -7,9 +7,6 @@
     become_method: sudo
     apt_repository: repo={{ item }}
     with_items:
-    - ppa:tmate.io/archive
-    - ppa:noobslab/themes
-    - ppa:noobslab/icons
     - ppa:mmstick76/alacritty
     - ppa:daniruiz/flat-remix
 
@@ -37,7 +34,6 @@
     snap:
       name:
         - spotify
-        - chromium
 
   - name: Install Zoom
     become: true
@@ -49,13 +45,13 @@
     become: true
     become_method: sudo
     apt:
-      deb: https://mullvad.net/en/download/deb/2020.3/
+      deb: https://mullvad.net/download/app/deb/latest/
 
   - name: Install Slack
     become: true
     become_method: sudo
     apt:
-      deb: https://downloads.slack-edge.com/linux_releases/slack-desktop-4.3.2-amd64.deb
+      deb: https://downloads.slack-edge.com/linux_releases/slack-desktop-4.12.2-amd64.deb
 
   - name: install autorandr
     pip: name=autorandr state=latest extra_args=--user executable=pip3
