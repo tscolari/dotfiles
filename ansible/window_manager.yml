@@ -28,13 +28,6 @@
       - libglib2.0-dev-bin
       - ultra-flat-icons
 
-  - name: Install Snaps
-    become: yes
-    become_method: sudo
-    snap:
-      name:
-        - spotify
-
   - name: Install Zoom
     become: true
     become_method: sudo
