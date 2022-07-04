@@ -9,7 +9,7 @@
 
   - name: create config/nvim folder
     file:
-      path: ~/.config/nvim/user
+      path: ~/.config/nvim/lua/user
       state: directory
 
   - name: install neovim pip package
@@ -22,6 +22,6 @@
       state: link
       force: yes
     with_items:
-    - {target: ~/.config/nvim/user/after.vim, src: "{{ansible_env.PWD}}/../config/nvim/after.vim"}
-    - {target: ~/.config/nvim/user/before.vim, src: "{{ansible_env.PWD}}/../config/nvim/before.vim"}
-    - {target: ~/.config/nvim/user/plug.vim, src: "{{ansible_env.PWD}}/../config/nvim/plug.vim"}
+    - {target: ~/.config/nvim/lua/user/after.lua, src: "{{ansible_env.PWD}}/../config/nvim/after.lua"}
+    - {target: ~/.config/nvim/lua/user/before.lua, src: "{{ansible_env.PWD}}/../config/nvim/before.lua"}
+    - {target: ~/.config/nvim/lua/user/plugins.lua, src: "{{ansible_env.PWD}}/../config/nvim/plugins.lua"}
