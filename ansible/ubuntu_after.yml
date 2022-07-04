@@ -1,0 +1,7 @@
+---
+- hosts: all
+  tags: [ubuntu]
+  tasks:
+
+  - name: Install fzf
+    command: /home/linuxbrew/.linuxbrew/opt/fzf/install --all
