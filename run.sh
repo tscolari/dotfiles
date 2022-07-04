@@ -25,7 +25,7 @@ install_ansible__Gentoo() {
 
 install_ansible__Ubuntu() {
   sudo apt-get update
-  sudo apt-get install -y python-pip libssl-dev
+  sudo apt-get install -y python3-pip libssl-dev
   pip install --upgrade --user pip
   pip install --user ansible
 }
@@ -61,7 +61,7 @@ fi
 
 (
 cd "$(dirname "$0")"
-cmd="ansible-playbook --ask-become-pass -i localhost, --tags $(unix playbook_tags),$extra_tags --con local ./ansible/playbook.yml"
+cmd="ansible-playbook --ask-become-pass -i localhost, --tags $(unix playbook_tags),$extra_tags --connection local ./ansible/playbook.yml"
 if [ "$(uname)" == "Linux" ]; then
   cmd="$cmd --ask-become-pass"
 fi

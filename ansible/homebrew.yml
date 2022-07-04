@@ -18,6 +18,7 @@
     - {name: ag, install_options: ''}
     - {name: awscli, install_options: ''}
     - {name: azure-cli, install_options: ''}
+    - {name: bat, install_options: ''}
     - {name: chruby, install_options: ''}
     - {name: cmake, install_options: ''}
     - {name: consul, install_options: ''}
@@ -33,8 +34,10 @@
     - {name: fzf, install_options: ''}
     - {name: gcc, install_options: ''}
     - {name: git, install_options: ''}
+    - {name: git-duet/tap/git-duet, install_options: ''}
     - {name: gnupg, install_options: ''}
     - {name: go, install_options: ''}
+    - {name: gopls, install_options: ''}
     - {name: gomplate, install_options: ''}
     - {name: gpg, install_options: ''}
     - {name: grpcurl, install_options: ''}
@@ -48,6 +51,7 @@
     - {name: mysql, install_options: ''}
     - {name: neovim, install_options: ''}
     - {name: nomad, install_options: ''}
+    - {name: npm, install_options: ''}
     - {name: openssl, install_options: ''}
     - {name: pinentry, install_options: ''}
     - {name: pkg-config, install_options: ''}

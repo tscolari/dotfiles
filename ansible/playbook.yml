@@ -6,3 +6,4 @@
 - import_playbook: vim.yml
 - import_playbook: go.yml
 - import_playbook: window_manager.yml
+- import_playbook: ubuntu_after.yml

@@ -3,8 +3,7 @@
   tags: [ubuntu, gentoo, macos]
   tasks:
   - name: install go apps
-    command: go get {{ item }}
+    command: go install {{ item }}
     with_items:
-    - github.com/git-duet/git-duet/...
-    - github.com/vektra/mockery/.../
-    - gotest.tools/gotestsum
+    - github.com/vektra/mockery/...@latest
+    - gotest.tools/gotestsum@latest

@@ -15,14 +15,15 @@
     apt:
       state: latest
       name:
-      - aptitude
       - apt-transport-https
+      - aptitude
       - build-essential
       - curl
       - docker.io
-      - git
       - file
+      - git
       - hfsprogs
+      - procps
 
   - name: checking zsh
     shell: cat /etc/shells | grep zsh | wc -l
@@ -72,6 +73,3 @@
   - name: adding brew env
     lineinfile: dest=~/.profile line='test -d /home/linuxbrew/.linuxbrew && eval $(/home/linuxbrew/.linuxbrew/bin/brew shellenv)'
     when: test_homebrew.stdout == "0"
-
-  - name: Install fzf
-    command: /home/linuxbrew/.linuxbrew/opt/fzf/install --all
