@@ -1,3 +1,5 @@
+vim.cmd [[
+
 " Called after everything just before setting a default colorscheme
 " Configure you own bindings or other preferences. e.g.:
 
@@ -40,7 +42,7 @@ set foldlevelstart=9999
 " }}}
 
 " Switch between test and production code {{{
-nnoremap <leader>. :A<cr>
+nnoremap <leader>. :GoAlt<cr>
 " }}}
 
 " Set the -local flag to the current Go module
@@ -49,3 +51,6 @@ autocmd FileType go let b:go_fmt_options = {
       \ trim(system('{cd '. shellescape(expand('%:h')) .' && go list -m;}')),
       \ }
 
+" Change the behaviour of the paste to not replace the copy when pasting in visual mode.
+vnoremap p "_dP
+]]
